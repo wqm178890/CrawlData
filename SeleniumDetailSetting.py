@@ -17,7 +17,7 @@ appname = u"这是一个用来跑测试流程的应用"
 img_path = "C:\\beenice.certSigningRequest"
 indextype = u"工具"
 subtype = u"旅游"
-icon_path = u"D:\\桌面\\AppIcon\\@1024.png"
+icon_path = u"F:\\CERT\\AppIcon\\@1024.png"
 
 
 class Test(unittest.TestCase):
@@ -32,8 +32,19 @@ class Test(unittest.TestCase):
     def testSettingInfo(self):
         driver = self.driver
         driver.get(self.url)
+
+        sleeptimes = 0
         #帐号登录
-        driver.switch_to.frame("aid-auth-widget-iFrame");
+        while True:
+            try:
+                driver.switch_to.frame("aid-auth-widget-iFrame")
+                break
+            except:
+                sleeptimes += 1
+                if sleeptimes > 60:
+                    print "pageLoad Timeout"
+                    return
+                time.sleep(1.0)
         driver.find_element_by_xpath("//*[@id='appleId']").clear()
         driver.find_element_by_xpath("//*[@id='appleId']").send_keys(account_id)
         driver.find_element_by_id("pwd").clear()
@@ -60,22 +71,74 @@ class Test(unittest.TestCase):
         if driver.find_element_by_css_selector("button").is_enabled(): 
             driver.find_element_by_css_selector("button").click()
         time.sleep(2.0)
-        print "正在保存", driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed()
+        sleeptimes = 0
+        while driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed():
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print 'save time out'
+                return
         
         #end APP信息
-        print u"end app信息"..
+        print u"end app信息"
         
         #define 准备提交
        # driver.get(self.url + "/ios/versioninfo")
-        driver.find_elements_by_xpath("//div[@id='main-ui-view']div[5]/div/div[2]/div[1]/ul/li[1]/a[1]").click()
-        while self.is_element_present(By.XPATH, "//*[@id='applocalizations']/div/table/tbody") == False:
-            time.sleep(1.0)      
+        time.sleep(1.0)
+        driver.find_element_by_xpath("//div[@id='main-ui-view']/div[5]/div/div[2]/div[1]/ul/li[1]/a[1]").click()
+        sleeptimes = 0
+        while self.is_element_present(By.ID, "mainDropTrayFileSelect") == False:
+            print "wait page loaded"
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "page loaded timeout"
+                return
         time.sleep(2.0)
         driver.find_element_by_id("mainDropTrayFileSelect").clear()
-        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"D:\\桌面\\test1.jpg") 
-        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"D:\\桌面\\test2.jpg") 
-        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"D:\\桌面\\test3.jpg") 
-        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"D:\\桌面\\test4.jpg")
+        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"F:\\CERT\\test1.jpg")
+        time.sleep(10.0)
+        sleeptimes = 0
+        while driver.find_element_by_xpath("//div[@id='main-ui-view']/div[5]/div/div[3]/div[5]/div[2]/div/div/div/div[2]/div/button").is_displayed() == False:
+            sleeptimes += 1
+            time.sleep(1.0)
+            if sleeptimes > 10:
+                break
+        if driver.find_element_by_xpath("//div[@id='main-ui-view']/div[5]/div/div[3]/div[5]/div[2]/div/div/div/div[2]/div/button").is_displayed():
+            driver.find_element_by_xpath("//div[@id='main-ui-view']/div[5]/div/div[3]/div[5]/div[2]/div/div/div/div[2]/div/button").click()
+
+        sleeptimes = 0
+        while self.is_element_present(By.ID, "mainDropTrayFileSelect") == False:
+            print "wait page loaded"
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "page loaded timeout"
+                return
+        driver.find_element_by_id("mainDropTrayFileSelect").clear()
+        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"F:\\CERT\\test2.jpg")
+        sleeptimes = 0
+        while self.is_element_present(By.ID, "mainDropTrayFileSelect") == False:
+            print "wait page loaded"
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "page loaded timeout"
+                return
+        driver.find_element_by_id("mainDropTrayFileSelect").clear()
+        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"F:\\CERT\\test3.jpg")
+        sleeptimes = 0
+        while self.is_element_present(By.ID, "mainDropTrayFileSelect") == False:
+            print "wait page loaded"
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "page loaded timeout"
+                return
+        driver.find_element_by_id("mainDropTrayFileSelect").clear()
+        driver.find_element_by_id("mainDropTrayFileSelect").send_keys(u"F:\\CERT\\test4.jpg")
+        time.sleep(20.0)
+
 
         #描述
         descripte = u"* Wallpaper collection, create your personal wallpaper gallery\n* Featured Ultra HD Wallpapers, each of them are Well recommended for you\n* Adaptation iPhone4, iPhone4s, iPhone5, iPhone6, iPhone6s, iPhone6s plus other models"
@@ -92,9 +155,21 @@ class Test(unittest.TestCase):
         driver.find_element_by_xpath("(//input[@type='text'])[3]").send_keys("http://wallbase.fr/")    
         
         #选择最新构建版本
-        driver.find_element_by_link_text(u"请在提交 App 前先选择一个构建版本。").click()
-        driver.find_element_by_css_selector("a.radiostyle").click()        
-        
+        # driver.find_element_by_link_text(u"请在提交 App 前先选择一个构建版本。").click()
+        # time.sleep(5.0)
+        # c_xpath = "//div[@id='appStorePageContent']/div[3]/div[1]/form/div/div[2]/div[1]/div/div/div/div/div[1]/div[2]/table/tbody/tr[1]/td[1]/div/span/a"
+        # # sleeptimes = 0
+        # # while driver.find_element_by_xpath(c_xpath) == False:
+        # #     print "choice new version"
+        # #     sleeptimes += 1
+        # #     time.sleep(1.0)
+        # #     if sleeptimes > 60:
+        # #         return
+        #
+        # driver.find_element_by_xpath(c_xpath).click()
+        # time.sleep(1.0)
+        # driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div/form/div/div[2]/div/div/div/div/div/div[2]/div/button[2]").click()
+
         #ICON
         driver.find_element_by_xpath("(//input[@type='file'])[5]").clear()
         driver.find_element_by_xpath("(//input[@type='file'])[5]").send_keys(icon_path) 
@@ -108,12 +183,17 @@ class Test(unittest.TestCase):
         
         
         #添加国家
+        sleeptimes = 0
         driver.find_element_by_xpath("//*[@id='verlocHeader']/div/a").click()
         while self.is_element_present(By.XPATH, "//*[@id='applocalizations']/div/table/tbody") == False:
-            print "test"
+            print "add country"
             driver.find_element_by_xpath("//*[@id='verlocHeader']/div/a").click()
             time.sleep(1.0)
-        
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "add country time out"
+                return
+
         table = driver.find_element_by_xpath("//*[@id='applocalizations']/div/table/tbody")
         trList = table.find_elements_by_xpath(".//tr") 
         
@@ -129,7 +209,11 @@ class Test(unittest.TestCase):
         time.sleep(1.0)
         driver.find_element_by_xpath("//div[@id='localizationSection']/div[2]/div[4]/div/span/span/textarea").clear()
         driver.find_element_by_xpath("//div[@id='localizationSection']/div[2]/div[4]/div/span/span/textarea").send_keys(descripte)
-        
+
+
+        table = driver.find_element_by_xpath("//*[@id='applocalizations']/div/table/tbody")
+        trList = table.find_elements_by_xpath(".//tr")
+
         #英国
         index = 0
         for element in trList:
@@ -146,8 +230,14 @@ class Test(unittest.TestCase):
         #存储
         driver.find_element_by_xpath("//div[@id='appVerionInfoHeaderId']/div[2]/button[1]").click()
         time.sleep(5.0)        
-        
-        print "正在保存", driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed()
+
+        while driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed():
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print 'save time out'
+                return
+       # print "正在保存", driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed()
         #end define 准备提交
         
         

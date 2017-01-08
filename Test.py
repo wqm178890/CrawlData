@@ -50,7 +50,7 @@ def update_paper_data(results):
             url_3w = result[0]
             boardid = result[1]
             result = urlparse.urlparse(url_3w)
-            params = urlparse.parse_qs(result.query, True)  
+            params = urlparse.parse_qs(result.query, True)
             biz = params['__biz'][0]
            # md5 = Downloader.get_md5(source_url)
             sql = 'update tb_wechat set biz=\'%s\' where account=\'%s\'' % (biz, boardid)
@@ -62,6 +62,16 @@ def update_paper_data(results):
         return results
     except MySQLdb.Error, e:
         print e
+
+import os
+import os.path
+rootdir = "C:\Users\wqm\Desktop\wallpaper"                              # 指明被遍历的文件夹
+
+for parent,dirnames,filenames in os.walk(rootdir):    #三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
+    for filename in filenames:                        #输出文件信息
+        print os.path.join(parent,filename) #输出文件路径信息
+
+                                                                         #windows下为：d:\data\query_text\EL_00154
 
 #results = select_paper_data()
 #update_paper_data(results)

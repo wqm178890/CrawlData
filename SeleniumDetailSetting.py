@@ -89,7 +89,7 @@ second_pic_path = u"D:\\桌面\\second.jpg"
 third_pic_path = u"D:\\桌面\\third.jpg"
 fourth_pic_path = u"D:\\桌面\\fourth.jpg"
 fifth_pic_path = u"D:\\桌面\\fifth.jpg"
-xml_path = u"C:\\Users\\wqm\\Desktop\\test.xml"
+xml_path = u"E:\\BaiduYunDownload\\test.xml"
 parser_xml = ParserXml(xml_path)
 parser_xml.read_xml()
 
@@ -102,7 +102,31 @@ class Test(unittest.TestCase):
         self.verificationErrors = []
         self.accept_next_alert = True
         
-    def test_b_AppInfo(self):
+    def test_a_prince(self):
+        driver = self.driver
+        driver.get(self.url + "/pricing")     
+        
+        sleeptimes = 0
+        while self.is_element_present(By.XPATH, "//div[@id='main-ui-view']/div[5]/div/div[3]/div[2]/div/div[4]/div/div/table/tbody/tr[2]/td/div/div") == False:
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print "pageLoad Timeout"
+                return
+            time.sleep(1.0)        
+        driver.execute_script("$(\"div[class='popupmenuinner'] table tbody tr:eq(0) td\").click();")
+        #保存
+        if driver.find_element_by_css_selector("button").is_enabled(): 
+            driver.find_element_by_css_selector("button").click()
+        time.sleep(2.0)
+        sleeptimes = 0
+        while driver.find_element_by_xpath("id('appVerionInfoHeaderId')/div[2]/button/span[1]").is_displayed():
+            time.sleep(1.0)
+            sleeptimes += 1
+            if sleeptimes > 60:
+                print 'save time out'
+                return        
+        
+    def atest_b_AppInfo(self):
         driver = self.driver
         driver.get(self.url)
         
@@ -221,13 +245,13 @@ class Test(unittest.TestCase):
         time.sleep(2.0)
         sleeptimes = 0
         while driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed():
-            time.sleep(1.0)
+            time.sleep(1.0).rs
             sleeptimes += 1
             if sleeptimes > 60:
                 print 'save time out'
                 return
         
-    def test_a_SettingInfo(self):
+    def atest_a_SettingInfo(self):
         driver = self.driver
         driver.get(self.url)
 
@@ -305,6 +329,14 @@ class Test(unittest.TestCase):
                 print "page loaded timeout"
                 return
         time.sleep(2.0)
+        
+        
+        if driver.find_element_by_link_text("全部删除").is_enabled() == True:
+            driver.find_element_by_link_text("全部删除").click()
+            time.sleep(2.0)
+            driver.find_element_by_xpath("id('main-ui-view')/div[5]/div/div[3]/div[5]/div[1]/div/div/div/div/div[2]/div/button[2]").click()
+            time.sleep(2.0)
+        
         #sub defind 图片上传
         for parent,dirnames,filenames in os.walk(parser_xml.screenshot_address):    #三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
             for filename in filenames:                        #输出文件信息

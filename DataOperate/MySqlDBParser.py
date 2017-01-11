@@ -8,6 +8,8 @@ import MySQLdb
 import unicodedata
 import hashlib, re, urlparse
 import CsvExcelParser
+import chardet
+import time
 
 class MySqlDBParser():
 
@@ -65,6 +67,7 @@ class MySqlDBParser():
         google_table.append("visible_show_times")
         google_table.append("measurable_rate")
         google_table.append("visible_rate")
+        google_table.append("md5")
         return google_table
 
     def get_gdt_table(self):
@@ -74,10 +77,22 @@ class MySqlDBParser():
         gdt_table.append("app_name")
         gdt_table.append("ad_show")
         gdt_table.append("ad_click")
-        gdt_table.append("cpm")
         gdt_table.append("incomes")
+        gdt_table.append("cpm")
         gdt_table.append("click_rate")
+        gdt_table.append("md5")
         return gdt_table
+    
+    def get_umeng_table(self):
+        umeng_table = []
+        umeng_table.append("date_time")
+        umeng_table.append("app_name")
+        umeng_table.append("new_users")
+        umeng_table.append("active_users")
+        umeng_table.append("launch_times")
+        umeng_table.append("accumulative_users")
+        umeng_table.append("md5")
+        return umeng_table
 
     def get_insert_sql(self, table, data, table_name):
         keys = ""
@@ -106,11 +121,28 @@ class MySqlDBParser():
         print sql
         return sql
 
-if __name__ == '__main__':
+def main():
     parser = MySqlDBParser()
-    data = CsvExcelParser.collect_gdt("E:\\GDT_REPORT\\report_2017_01_08.csv")
-    sql = parser.get_insert_sql(parser.get_gdt_table(), data, "gdt_data")
+    localtime = time.localtime(time.time())
+    str_data = time.strftime("%Y_%m_%d", localtime)    
+    
+    data = CsvExcelParser.collect_umeng(r"E:\GDT_REPORT\%s_umeng.xlsx"%str_data)
+    sql = parser.get_insert_sql(parser.get_umeng_table(), data, "umeng_data")
     parser.insert_data(sql)
+
+    filename_list = ['report_%s.csv'%str_data, 'report_%s(1).csv'%str_data, 'report_%s(2).csv'%str_data]
+    first_file = True
+    for filename in filename_list:
+        filepath = "E:\\GDT_REPORT\\%s" % (filename)
+        data = CsvExcelParser.collect_gdt(filepath)
+        sql = parser.get_insert_sql(parser.get_gdt_table(), data, "gdt_data")  
+        parser.insert_data(sql)
+    
+    #data = CsvExcelParser.get_google_data(1)
+    #sql = parser.get_insert_sql(parser.get_google_table(), data, "google_data")
+    #parser.insert_data(sql)
+    
+main()
 
 
 

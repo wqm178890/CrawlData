@@ -142,7 +142,7 @@ class Test(unittest.TestCase):
                     print "pageLoad Timeout"
                     return
                 time.sleep(1.0)
-  
+
         driver.find_element_by_xpath("//*[@id='appleId']").clear()
         driver.find_element_by_xpath("//*[@id='appleId']").send_keys(parser_xml.account)
         driver.find_element_by_id("pwd").clear()
@@ -157,7 +157,7 @@ class Test(unittest.TestCase):
             if sleeptimes > 60:
                 print "pageLoad Timeout"
                 return
-            time.sleep(1.0)        
+            time.sleep(1.0)
         for appinfo in parser_xml.app_names:
             #添加国家
             sleeptimes = 0
@@ -340,9 +340,11 @@ class Test(unittest.TestCase):
         #sub defind 图片上传
         for parent,dirnames,filenames in os.walk(parser_xml.screenshot_address):    #三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
             for filename in filenames:                        #输出文件信息
-                print os.path.join(parent,filename) #输出文件路径信息
+                file_path = os.path.join(parent,filename) #输出文件路径信息
+                if file_path.find('png') < 0 or file_path.find('jpg') < 0:
+                    continue
                 driver.find_element_by_id("mainDropTrayFileSelect").clear()
-                driver.find_element_by_id("mainDropTrayFileSelect").send_keys(os.path.join(parent,filename))
+                driver.find_element_by_id("mainDropTrayFileSelect").send_keys(file_path)
                 time.sleep(10.0)
                 sleeptimes = 0
                 while driver.find_element_by_id("mainDropTrayFileSelect").is_enabled() == False:
@@ -435,6 +437,24 @@ class Test(unittest.TestCase):
         #版权
         driver.find_element_by_xpath("(//input[@type='text'])[6]").clear()
         driver.find_element_by_xpath("(//input[@type='text'])[6]").send_keys(parser_xml.audit_information['copyright'])
+
+        #app审核信息
+        #姓氏
+        driver.find_element_by_xpath("(//input[@type='text'])[31]").clear()
+        driver.find_element_by_xpath("(//input[@type='text'])[31]").send_keys(parser_xml.audit_information['firstName'])
+        #名
+        driver.find_element_by_xpath("(//input[@type='text'])[32]").clear()
+        driver.find_element_by_xpath("(//input[@type='text'])[32]").send_keys(parser_xml.audit_information['secondName'])
+        #电话
+        driver.find_element_by_xpath("(//input[@type='text'])[33]").clear()
+        driver.find_element_by_xpath("(//input[@type='text'])[33]").send_keys(parser_xml.audit_information['telPhone'])
+        #邮箱
+        driver.find_element_by_xpath("(//input[@type='text'])[34]").clear()
+        driver.find_element_by_xpath("(//input[@type='text'])[34]").send_keys(parser_xml.audit_information['email'])
+        #备注
+        if parser_xml.note is None:
+            driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div/form/div/div[6]/div/div[2]/div/span/span/textarea").clear()
+            driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div/form/div/div[6]/div/div[2]/div/span/span/textarea").send_keys(parser_xml.note)
         
         #演示帐户
         driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div[1]/form/div/div[6]/div[1]/div[1]/div[2]/div[1]/div/span/a").click()

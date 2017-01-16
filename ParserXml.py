@@ -58,4 +58,5 @@ class ParserXml():
 if __name__ == '__main__':
     parser_xml = ParserXml("C:\\Users\\wqm\\Desktop\\test.xml")
     parser_xml.read_xml()
+    print parser_xml.note is None
     parser_xml.appid

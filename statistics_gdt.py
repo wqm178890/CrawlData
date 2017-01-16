@@ -66,7 +66,7 @@ def collect_gdt():
     row = 0
     workbook = xlsxwriter.Workbook('E:\GDT_REPORT\\test.xlsx')
     worksheet = workbook.add_worksheet('gdt')
-    filename_list = ['report_%s.csv'%str_data, 'report_%s(1).csv'%str_data, 'report_%s(2).csv'%str_data]
+    filename_list = ['report_%s.csv'%str_data, 'report_%s(1).csv'%str_data, 'report_%s(2).csv' % str_data]
     first_file = True
     for filename in filename_list:
         first_row_data = 0

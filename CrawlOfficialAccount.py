@@ -9,9 +9,9 @@ import unicodedata
 import hashlib, re, urlparse
 
 DBName = 'db_news1'
-DB_HOST = '101.200.74.101'
-DB_USER = '5hito'
-DB_PWD = 'Com.5hito91.com'
+DB_HOST = '59.110.0.42'
+DB_USER = 'remote'
+DB_PWD = 'Combeemans91'
 DB_PORT = 3306
 path = 'c://Sessions.txt'
 

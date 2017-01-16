@@ -63,13 +63,13 @@ def update_paper_data(results):
     except MySQLdb.Error, e:
         print e
 
-import os
-import os.path
-rootdir = "C:\Users\wqm\Desktop\wallpaper"                              # 指明被遍历的文件夹
-
-for parent,dirnames,filenames in os.walk(rootdir):    #三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
-    for filename in filenames:                        #输出文件信息
-        print os.path.join(parent,filename) #输出文件路径信息
+appid = 2
+coopen_id = 3 
+source_list_id = 4
+source_detail_id = 5
+file_object = open('E:/tst.xml', 'w')
+file_object.write("<?xml version=\"1.0\"?><values><key>应用</key><value>%s</value><key>开屏</key><value>%s</value><key>原生列表</key><value>%s</value><key>原生详情</key><value>%s</value></values>"%(appid, coopen_id, source_list_id, source_detail_id))
+file_object.close( )  
 
                                                                          #windows下为：d:\data\query_text\EL_00154
 

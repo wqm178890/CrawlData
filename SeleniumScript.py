@@ -5,6 +5,8 @@ import unittest,time, re
 import hashlib
 
 import sys, getopt
+reload(sys)
+sys.setdefaultencoding("utf8")
 
 print "start"
 opts, args = getopt.getopt(sys.argv[1:], "h",["ai=", "ap=","bi=","csr=","o="])

@@ -28,6 +28,7 @@ class Test(unittest.TestCase):
         self.driver.implicitly_wait(self.wait)
         self.base_url = "http://e.qq.com"
         self.verificationErrors = []
+        
         self.accept_next_alert = True
     
     def get_data(self, account, pwd):
@@ -101,6 +102,8 @@ class Test(unittest.TestCase):
         element.click()
         while self.is_element_present(By.XPATH, "/html/body/div[4]/div[2]/div[2]/div/div[2]/div[2]/table") == False:
             time.sleep(1.0)  
+        time.sleep(10.0)
+        driver.find_element_by_link_text(u'在一页内显示').click()
         time.sleep(10.0)
         table = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[2]/div/div[2]/div[2]/table")
 

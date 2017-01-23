@@ -100,12 +100,12 @@ class Test(unittest.TestCase):
         element = driver.find_element_by_link_text(u"授权应用列表")
         time.sleep(3.0)
         element.click()
-        while self.is_element_present(By.XPATH, "/html/body/div[4]/div[2]/div[2]/div/div[2]/div[2]/table") == False:
+        while self.is_element_present(By.XPATH, "//table") == False:
             time.sleep(1.0)  
         time.sleep(10.0)
         driver.find_element_by_link_text(u'在一页内显示').click()
         time.sleep(10.0)
-        table = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[2]/div/div[2]/div[2]/table")
+        table = driver.find_element_by_xpath("//table")
 
         localtime = time.localtime(time.time())
         filename = time.strftime("%Y_%m_%d", localtime)

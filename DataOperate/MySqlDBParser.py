@@ -138,7 +138,7 @@ def main():
         sql = parser.get_insert_sql(parser.get_gdt_table(), data, "gdt_data")  
         parser.insert_data(sql)
     
-    data = CsvExcelParser.get_google_data(4)
+    data = CsvExcelParser.get_google_data(2)
     sql = parser.get_insert_sql(parser.get_google_table(), data, "google_data")
     parser.insert_data(sql)
     

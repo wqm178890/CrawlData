@@ -57,6 +57,8 @@ class MySqlDBParser():
         google_table.append("match_rate")
         google_table.append("show_times")
         google_table.append("show_rate")
+        google_table.append("ad_video_start")
+        google_table.append("ad_video_complete")
         google_table.append("click_times")
         google_table.append("click_rate")
         google_table.append("admob_cpm")
@@ -123,22 +125,22 @@ class MySqlDBParser():
 
 def main():
     parser = MySqlDBParser()
-    localtime = time.localtime(time.time())
-    str_data = time.strftime("%Y_%m_%d", localtime)    
+    #localtime = time.localtime(time.time())
+    #str_data = time.strftime("%Y_%m_%d", localtime)    
     
-    data = CsvExcelParser.collect_umeng(r"E:\GDT_REPORT\%s_umeng.xlsx"%str_data)
-    sql = parser.get_insert_sql(parser.get_umeng_table(), data, "umeng_data")
-    parser.insert_data(sql)
+    #data = CsvExcelParser.collect_umeng(r"E:\GDT_REPORT\%s_umeng.xlsx"%str_data)
+    #sql = parser.get_insert_sql(parser.get_umeng_table(), data, "umeng_data")
+    #parser.insert_data(sql)
 
-    filename_list = ['report_%s.csv'%str_data, 'report_%s(1).csv'%str_data, 'report_%s(2).csv'%str_data]
-    first_file = True
-    for filename in filename_list:
-        filepath = "E:\\GDT_REPORT\\%s" % (filename)
-        data = CsvExcelParser.collect_gdt(filepath)
-        sql = parser.get_insert_sql(parser.get_gdt_table(), data, "gdt_data")  
-        parser.insert_data(sql)
+    #filename_list = ['report_%s.csv'%str_data, 'report_%s(1).csv'%str_data, 'report_%s(2).csv'%str_data]
+    #first_file = True
+    #for filename in filename_list:
+        #filepath = "E:\\GDT_REPORT\\%s" % (filename)
+        #data = CsvExcelParser.collect_gdt(filepath)
+        #sql = parser.get_insert_sql(parser.get_gdt_table(), data, "gdt_data")  
+        #parser.insert_data(sql)
     
-    data = CsvExcelParser.get_google_data(2)
+    data = CsvExcelParser.get_google_data(1)
     sql = parser.get_insert_sql(parser.get_google_table(), data, "google_data")
     parser.insert_data(sql)
     

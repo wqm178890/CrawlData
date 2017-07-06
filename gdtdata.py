@@ -51,8 +51,14 @@ class Test(unittest.TestCase):
         driver.switch_to.default_content()
         time.sleep(5.0)
         while self.is_element_present(By.LINK_TEXT, u"下载报告") == False:
+            print "download btn"
             time.sleep(1.0)
         time.sleep(10.0)
+        
+        cookie = [item["name"] + "=" + item["value"] for item in driver.get_cookies()]  
+        print cookie    
+        cookiestr = ';'.join(item for item in cookie)  
+        print cookiestr         
         driver.find_element_by_xpath("/html/body/div[2]/div[3]/div/div[3]/div/div/ul/li[1]/span").click()
         while self.is_element_present(By.XPATH, "/html/body/div[3]/div/div/div[2]/div/ul/li/span") == False:
             time.sleep(1.0)              
@@ -70,8 +76,8 @@ class Test(unittest.TestCase):
         driver.find_element_by_link_text(u"下载报告").click()
         time.sleep(10.0)
     
-    def test_a_(self):
-        self.get_data("2045571685", "Beemans91")
+    #def test_a_(self):
+        #self.get_data("2045571685", "Beemans91")
     
     def test_b_(self):
         self.get_data("2772636960@qq.com", "Beemans91")
@@ -86,7 +92,7 @@ class Test(unittest.TestCase):
         driver.find_element_by_id("umengLoginBtn").click()
         while self.is_element_present(By.CSS_SELECTOR, "input[type=\"text\"]") == False:
             time.sleep(1.0)
-        time.sleep(1.0)
+        time.sleep(3.0)
         driver.find_element_by_css_selector("input[type=\"text\"]").clear()
         driver.find_element_by_css_selector("input[type=\"text\"]").send_keys("178890290@qq.com")
         driver.find_element_by_css_selector("input[type=\"password\"]").clear()
@@ -98,13 +104,13 @@ class Test(unittest.TestCase):
             time.sleep(1.0)
 
         element = driver.find_element_by_link_text(u"授权应用列表")
-        time.sleep(3.0)
+        time.sleep(10.0)
         element.click()
         while self.is_element_present(By.XPATH, "//table") == False:
             time.sleep(1.0)  
         time.sleep(10.0)
         driver.find_element_by_link_text(u'在一页内显示').click()
-        time.sleep(10.0)
+        time.sleep(30.0)
         table = driver.find_element_by_xpath("//table")
 
         localtime = time.localtime(time.time())
@@ -152,7 +158,7 @@ class Test(unittest.TestCase):
             self.driver.implicitly_wait(1)
             element = self.driver.find_element(by=how, value=what)
             return element.is_displayed()
-        except NoSuchElementException as e: 
+        except Exception as e: 
             self.driver.implicitly_wait(self.wait)
             return False
         self.driver.implicitly_wait(self.wait)

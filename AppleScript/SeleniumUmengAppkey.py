@@ -3,11 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import WebDriverException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
 from selenium.webdriver.common.action_chains import ActionChains
-
 
 import sys, getopt
 reload(sys)
@@ -62,27 +61,45 @@ class SeleniumUmengAppkey(unittest.TestCase):
         driver.find_element_by_xpath("//*[@id='fm-login-id']").send_keys("funkingwo2513@qq.com")
         driver.find_element_by_xpath("//*[@id='fm-login-password']").clear()
         driver.find_element_by_xpath("//*[@id='fm-login-password']").send_keys("hk_112358")
-        time.sleep(2.0)
+
         driver.find_element_by_id("fm-login-submit").click()
+        time.sleep(2.0)
         # driver.switch_to.default_content()
         # time.sleep(5.0)
 
        # self.driver.switch_to.frame(self.driver.find_element_by_tag_name("iframe"))
+        if self.is_element_present(By.XPATH, "/html/body/div[6]/div[3]/div/button[2]") == False:
+            dragger = self.driver.find_element_by_id("nc_1_n1z")
+            action = ActionChains(self.driver)
+            action.click_and_hold(dragger).move_to_element(dragger).perform(); #鼠标左键按下不放
+            action.reset_actions()
+            action.move_by_offset(268, 0).perform(); #移动一个位移
 
-        dragger = self.driver.find_element_by_id("nc_1_n1z")
-        action = ActionChains(self.driver)
-        action.click_and_hold(dragger).move_to_element(dragger).perform(); #鼠标左键按下不放
-        action.reset_actions()
-        action.move_by_offset(268, 0).perform(); #移动一个位移
+            # action.reset_actions()
+            #
+            # time.sleep(d[index]); #等待停顿时间
 
-        # action.reset_actions()
-        #
-        # time.sleep(d[index]); #等待停顿时间
+            #action.release().perform(); #鼠标左键松开
+            action.reset_actions()
+            time.sleep(5.0)
+            driver.find_element_by_id("fm-login-submit").click()
+            if self.is_element_present(By.LINK_TEXT, "刷新") == True:
+                driver.find_element_by_link_text("刷新").click()
+                time.sleep(2.0)
+                dragger = self.driver.find_element_by_id("nc_1_n1z")
+                action = ActionChains(self.driver)
+                action.click_and_hold(dragger).move_to_element(dragger).perform(); #鼠标左键按下不放
+                action.reset_actions()
+                action.move_by_offset(268, 0).perform(); #移动一个位移
 
-        #action.release().perform(); #鼠标左键松开
-        action.reset_actions()
-        time.sleep(5.0)
-        driver.find_element_by_id("fm-login-submit").click()
+                # action.reset_actions()
+                #
+                # time.sleep(d[index]); #等待停顿时间
+
+                #action.release().perform(); #鼠标左键松开
+                action.reset_actions()
+                time.sleep(5.0)
+                driver.find_element_by_id("fm-login-submit").click()
         self.driver.switch_to.default_content()
 
         if self.is_element_present(By.XPATH, "/html/body/div[6]/div[3]/div/button[2]") == True:
@@ -124,7 +141,7 @@ class SeleniumUmengAppkey(unittest.TestCase):
             self.driver.implicitly_wait(1)
             element = self.driver.find_element(by=how, value=what)
             return element.is_displayed()
-        except NoSuchElementException as e:
+        except WebDriverException as e:
             self.driver.implicitly_wait(self.wait)
             return False
         self.driver.implicitly_wait(self.wait)

@@ -63,10 +63,11 @@ class FirstStript(unittest.TestCase):
         driver.find_element_by_name("appIdName").send_keys(bundle_name)
         driver.find_element_by_name("explicitIdentifier").clear()
         driver.find_element_by_name("explicitIdentifier").send_keys(bundle_id)
-        driver.find_element_by_xpath("//div[@id='subcontent']/div[2]/div/div[3]/form/div[2]/a[2]").click()
+        time.sleep(1.0)
+        driver.find_element_by_xpath("//*[@id='subcontent']/div[2]/div/div[3]/form/div[2]/button").click()
         time.sleep(2.0)
        # print  driver.find_element_by_xpath("//div[@id='subcontent']/div[2]/div/div[3]/form/div[2]/a[2]").is_enabled()
-        driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div/div[3]/form/div[3]/a[3]/span").click()
+        driver.find_element_by_xpath("//*[@id='subcontent']/div[2]/div/div[3]/form/div[3]/button[2]").click()
         time.sleep(2.0)
         fo = open("%s/BundleId_Success.txt" % cert_save_path, "w")
         time.sleep(2.0)
@@ -74,7 +75,7 @@ class FirstStript(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
-        self.driver.quit()
+        #self.driver.quit()
         self.assertEqual([], self.verificationErrors)
         
     def check_display_click(self, webelement):

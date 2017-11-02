@@ -19,10 +19,10 @@ def get_md5(str):
     md5 = m.hexdigest()
     return md5
 
-account_id = "beegoleft@qq.com"
-account_pwd = "Beemans918"
+account_id = "beebees@qq.com"
+account_pwd = "Beemans912"
 bundle_name = "BeemansTest"
-bundle_id = "beemans.5hito.app-310"
+bundle_id = "beemans.5hito.app-312"
 cert_save_path = "/Users/nd/Desktop"
 cert_file_path = "C:\\beenice.certSigningRequest"
 appname = "TEST"
@@ -85,8 +85,8 @@ class Test(unittest.TestCase):
 
             #self.check_display_click(driver.find_element_by_link_text(u"新建 App"))
         self.check_display_click(driver.find_element_by_link_text(u"新建 App"))
-
-        time.sleep(5.0)
+        
+        time.sleep(10.0)
         driver.find_element_by_xpath("(//input[@type='text'])[4]").send_keys(u"%s-%s"%(appname,get_md5(bundle_id)))
         Select(driver.find_element_by_xpath("//div[@id='main-ui-view']/div[3]/div/div/div/div/div/div[2]/form/div/div[5]/span/select")).select_by_visible_text(u"英文（澳大利亚）")
 
@@ -117,12 +117,12 @@ class Test(unittest.TestCase):
         #print driver.find_element_by_xpath("/html/body/div[1]/div[4]/div[3]/div[1]/div/div/div/div/div[2]/div/p").text
         #time.sleep(20.0)
         times = 0
-        while(self.is_element_present(By.XPATH, "id('appStorePageContent')/div[3]/div[1]/form/div[6]/div[2]/div/div[1]/div[4]/div") is False):
+        while(self.is_element_present(By.XPATH, "//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[1]/div[4]/div") is False):
             if times > 60:
                 raise Exception(u"请求超时或者ID/NAME已经被使用过")
             times = times + 1
-            time.sleep(1.0)
-        str_id = driver.find_element_by_xpath("id('appStorePageContent')/div[3]/div[1]/form/div[6]/div[2]/div/div[1]/div[4]/div").text
+            time.sleep(1.0)                   
+        str_id = driver.find_element_by_xpath("//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[1]/div[4]/div").text
         print str_id
         fo = open("%s/AppId.txt" % cert_save_path, "w")
         fo.write(str_id)
@@ -133,7 +133,7 @@ class Test(unittest.TestCase):
         webelement.click()
     
     def tearDown(self):
-        self.driver.close()
+        #self.driver.close()
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
 

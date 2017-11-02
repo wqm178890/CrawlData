@@ -96,7 +96,7 @@ class SeleniumUmengAppkey(unittest.TestCase):
                 #
                 # time.sleep(d[index]); #等待停顿时间
 
-                #action.release().perform(); #鼠标左键松开	
+                #action.release().perform(); #鼠标左键松开
                 action.reset_actions()
                 time.sleep(5.0)
                 driver.find_element_by_id("fm-login-submit").click()
@@ -166,7 +166,7 @@ class SeleniumUmengAppkey(unittest.TestCase):
     def tearDown(self):
         print ""
         #self.driver.close()
-        #self.driver.quit()
+        self.driver.quit()
 #self.assertEqual([], self.verificationErrors)
 
 if __name__ == "__main__":

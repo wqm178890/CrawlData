@@ -17,9 +17,9 @@ sys.setdefaultencoding("utf8")
 
 opts, args = getopt.getopt(sys.argv[1:], "h", ["ai=", "ap=", "bi=", "xml="])
 
-account_id = "bee@qq.com"
-account_pwd = "Beemans"
-app_id = "1208915267"
+account_id = "beebees@qq.com"
+account_pwd = "Beemans912"
+app_id = "1189855800"
 xml_path = u"/Users/xxx/Desktop/appPay.xml"
 
 for op, value in opts:

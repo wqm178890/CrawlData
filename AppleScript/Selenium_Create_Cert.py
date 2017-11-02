@@ -19,8 +19,8 @@ account_id = "beebees@qq.com"
 account_pwd = "Beemans912"
 bundle_name = "BeemansTest"
 bundle_id = "com.beemans.tests.com"
-cert_save_path = "E:\\CERT"
-cert_file_path = "C:\\beenice.certSigningRequest"
+cert_save_path = "/Users/nd/Desktop/INSIDE_SVN/git/CrawlData/AppleScript"
+cert_file_path = "/Users/nd/Desktop/INSIDE_SVN/git/CrawlData/AppleScript/CertificateSigningRequest.certSigningRequest"
 
 for op, value in opts:
     print op
@@ -55,19 +55,21 @@ class FirstStript(unittest.TestCase):
         self.driver.implicitly_wait(220)
 
     def test_b_first_stript(self):
-        self.driver.get('https://developer.apple.com/account/ios/certificate/create')
+        self.driver.get('https://developer.apple.com/account/ios/certificate/distribution/create')
         driver = self.driver
         driver.find_element_by_id("accountname").send_keys(account_id)
         driver.find_element_by_id("accountpassword").send_keys(account_pwd)
         driver.find_element_by_id("submitButton2").submit()
-        driver.find_element_by_id("type-production-2").click()
-        driver.find_element_by_xpath("//div[@id='subcontent']/div[2]/div/div[4]/a[3]/span").click()
+        time.sleep(2.0)
 
+        driver.find_element_by_id("type-production-1").click()
+        driver.find_element_by_xpath("//*[@id='subcontent']/div[2]/div/div[4]/a[3]/span").click()
         option_element = driver.find_element_by_xpath("//select[@id='identifier']/option[2]")
         options = Select(driver.find_element_by_id("identifier")).options
         select_text = ""
         print bundle_id
         for option in options:
+            print option.text
             if option.text.find(bundle_id) > -1:
                 select_text = option.text
                 break
@@ -86,11 +88,12 @@ class FirstStript(unittest.TestCase):
         time.sleep(2.0)
         driver.find_element_by_xpath("//div[@id='subcontent']/div[2]/div/div[4]/a[3]/span").click()
         time.sleep(2.0)
+        
         driver.find_element_by_xpath("/html/body/div/div/div[1]/div/div[2]/div[2]/div/div[3]/div[2]/div[2]/a/span").click()
         time.sleep(10.0)
     
     def tearDown(self):
-        self.driver.close()
+        #self.driver.close()
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
         

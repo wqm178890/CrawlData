@@ -1849,3 +1849,245 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 
 [Child 6040] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
 [Child 6040] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1509591094999	geckodriver	INFO	Listening on 127.0.0.1:51732
+1509591095908	mozprofile::profile	INFO	Using profile path /var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.SUm5aRMISvTi
+1509591095909	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1509591095968	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51741
+1509591096578	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591097033	Marionette	INFO	Enabled via --marionette
+2017-11-02 10:51:38.457 plugin-container[2039:58999] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa23b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 10:51:38.458 plugin-container[2039:58999] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591098950	Marionette	INFO	Listening on port 51741
+1509591099091	Marionette	DEBUG	Register listener.js for window 2147483649
+1509591110091	geckodriver	INFO	Listening on 127.0.0.1:51835
+1509591111065	mozprofile::profile	INFO	Using profile path /var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.WV6880X4zyG0
+1509591111066	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1509591111068	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51847
+1509591111420	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591111814	Marionette	INFO	Enabled via --marionette
+2017-11-02 10:51:52.958 plugin-container[2048:59363] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa23b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 10:51:52.959 plugin-container[2048:59363] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591113412	Marionette	INFO	Listening on port 51847
+1509591113515	Marionette	DEBUG	Register listener.js for window 2147483649
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+1509591275749	geckodriver	INFO	Listening on 127.0.0.1:51960
+1509591276748	mozprofile::profile	INFO	Using profile path /var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.VMaBhYGp3CFd
+1509591276749	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1509591276751	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51969
+1509591277022	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591277343	Marionette	INFO	Enabled via --marionette
+2017-11-02 10:54:38.354 plugin-container[2099:61587] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa13b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 10:54:38.356 plugin-container[2099:61587] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa403, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591278869	Marionette	INFO	Listening on port 51969
+1509591278941	Marionette	WARN	TLS certificate errors will be ignored for this session
+1509591278975	Marionette	DEBUG	Register listener.js for window 2147483649
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+1509591432110	geckodriver	INFO	geckodriver 0.19.1
+1509591432124	geckodriver	INFO	Listening on 127.0.0.1:52159
+1509591433314	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.kkvteBk2re1A"
+1509591433631	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591433948	Marionette	INFO	Enabled via --marionette
+2017-11-02 10:57:14.931 plugin-container[2360:64958] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa23b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 10:57:14.931 plugin-container[2360:64958] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591435503	Marionette	INFO	Listening on port 52168
+1509591435513	Marionette	WARN	TLS certificate errors will be ignored for this session
+1509591435556	Marionette	DEBUG	Register listener.js for window 2147483649
+1509591435597	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1509591437146	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1509591437146	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1509591449434	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps"
+1509591453681	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps"
+1509591453789	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps"
+1509591456513	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps"
+1509591456513	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps"
+1509591475405	Marionette	DEBUG	Received DOM event "pageshow" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591475407	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591511009	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483649"
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/nsUrlClassifierListManager.js, line 327: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/nsUrlClassifierListManager.js, line 327: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/nsUrlClassifierListManager.js, line 327: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/nsUrlClassifierListManager.js, line 327: NS_ERROR_NOT_INITIALIZED: Component returned failure code: 0xc1f30001 (NS_ERROR_NOT_INITIALIZED) [nsIUrlClassifierDBService.getTables]
+1509591518156	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1509591519815	geckodriver	INFO	geckodriver 0.19.1
+1509591519819	geckodriver	INFO	Listening on 127.0.0.1:52326
+1509591520915	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.s9WDS6rBqx6P"
+1509591521190	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591521490	Marionette	INFO	Enabled via --marionette
+2017-11-02 10:58:42.417 plugin-container[2495:66881] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa43b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 10:58:42.418 plugin-container[2495:66881] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa703, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591522935	Marionette	INFO	Listening on port 52335
+1509591523021	Marionette	WARN	TLS certificate errors will be ignored for this session
+1509591523056	Marionette	DEBUG	Register listener.js for window 2147483649
+1509591523081	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1509591523375	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1509591523375	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1509591529632	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps"
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+1509591601354	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps"
+1509591601434	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps"
+1509591601534	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps"
+1509591601534	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps"
+1509591606892	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591614893	Marionette	DEBUG	Received DOM event "pageshow" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591616411	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: can't access dead object
+Full stack: find_@chrome://marionette/content/element.js:302:7
+element.find/</findElements<@chrome://marionette/content/element.js:267:17
+evalFn@chrome://marionette/content/wait.js:90:7
+wait.until/<@chrome://marionette/content/wait.js:105:5
+wait.until@chrome://marionette/content/wait.js:85:10
+element.find/<@chrome://marionette/content/element.js:266:24
+element.find@chrome://marionette/content/element.js:265:10
+findElementContent@chrome://marionette/content/listener.js:1315:18
+TaskImpl_run@resource://gre/modules/Task.jsm:331:42
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+TaskImpl_handleResultValue@resource://gre/modules/Task.jsm:401:16
+TaskImpl_run@resource://gre/modules/Task.jsm:339:15
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+dispatch/<@chrome://marionette/content/listener.js:515:15
+
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: can't access dead object
+Full stack: find_@chrome://marionette/content/element.js:302:7
+element.find/</findElements<@chrome://marionette/content/element.js:267:17
+evalFn@chrome://marionette/content/wait.js:90:7
+wait.until/<@chrome://marionette/content/wait.js:105:5
+wait.until@chrome://marionette/content/wait.js:85:10
+element.find/<@chrome://marionette/content/element.js:266:24
+element.find@chrome://marionette/content/element.js:265:10
+findElementContent@chrome://marionette/content/listener.js:1315:18
+TaskImpl_run@resource://gre/modules/Task.jsm:331:42
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+TaskImpl_handleResultValue@resource://gre/modules/Task.jsm:401:16
+TaskImpl_run@resource://gre/modules/Task.jsm:339:15
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+dispatch/<@chrome://marionette/content/listener.js:515:15
+
+*************************
+1509591624497	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps"
+1509591625625	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps"
+1509591625625	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps"
+1509591625981	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps/setting"
+1509591762435	geckodriver	INFO	geckodriver 0.19.1
+1509591762439	geckodriver	INFO	Listening on 127.0.0.1:52533
+1509591763498	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "-marionette" "-profile" "/var/folders/8j/kyj584qj1vq1cy84y7bfsb2h0000gn/T/rust_mozprofile.jBIxXnz51JLf"
+1509591763708	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///Applications/Firefox.app/Contents/Resources/omni.ja!/components/addonManager.js:65
+1509591764025	Marionette	INFO	Enabled via --marionette
+2017-11-02 11:02:44.924 plugin-container[2554:69740] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa23b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-11-02 11:02:44.925 plugin-container[2554:69740] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0xa503, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1509591765500	Marionette	INFO	Listening on port 52542
+1509591765598	Marionette	WARN	TLS certificate errors will be ignored for this session
+1509591765633	Marionette	DEBUG	Register listener.js for window 2147483649
+1509591765659	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1509591766243	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1509591766243	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1509591771507	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps"
+JavaScript error: jar:file:///Applications/Firefox.app/Contents/Resources/browser/omni.ja!/components/nsBrowserGlue.js, line 994: TypeError: win is null
+1509591843219	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps"
+1509591843303	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps"
+1509591843383	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps"
+1509591843384	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps"
+1509591847482	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591852741	Marionette	DEBUG	Received DOM event "pageshow" for "http://passport.umeng.com/login?appId=umeng&redirectURL=http://mobile.umeng.com/apps"
+1509591854251	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: can't access dead object
+Full stack: find_@chrome://marionette/content/element.js:302:7
+element.find/</findElements<@chrome://marionette/content/element.js:267:17
+evalFn@chrome://marionette/content/wait.js:90:7
+wait.until/<@chrome://marionette/content/wait.js:105:5
+wait.until@chrome://marionette/content/wait.js:85:10
+element.find/<@chrome://marionette/content/element.js:266:24
+element.find@chrome://marionette/content/element.js:265:10
+findElementContent@chrome://marionette/content/listener.js:1315:18
+TaskImpl_run@resource://gre/modules/Task.jsm:331:42
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+TaskImpl_handleResultValue@resource://gre/modules/Task.jsm:401:16
+TaskImpl_run@resource://gre/modules/Task.jsm:339:15
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+dispatch/<@chrome://marionette/content/listener.js:515:15
+
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: can't access dead object
+Full stack: find_@chrome://marionette/content/element.js:302:7
+element.find/</findElements<@chrome://marionette/content/element.js:267:17
+evalFn@chrome://marionette/content/wait.js:90:7
+wait.until/<@chrome://marionette/content/wait.js:105:5
+wait.until@chrome://marionette/content/wait.js:85:10
+element.find/<@chrome://marionette/content/element.js:266:24
+element.find@chrome://marionette/content/element.js:265:10
+findElementContent@chrome://marionette/content/listener.js:1315:18
+TaskImpl_run@resource://gre/modules/Task.jsm:331:42
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+TaskImpl_handleResultValue@resource://gre/modules/Task.jsm:401:16
+TaskImpl_run@resource://gre/modules/Task.jsm:339:15
+TaskImpl@resource://gre/modules/Task.jsm:280:3
+asyncFunction@resource://gre/modules/Task.jsm:252:14
+Task_spawn@resource://gre/modules/Task.jsm:166:12
+dispatch/<@chrome://marionette/content/listener.js:515:15
+
+*************************
+1509591862341	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps"
+1509591863471	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps"
+1509591863471	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps"
+1509591863750	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps/setting"
+1509591863779	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps/setting"
+1509591868826	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps/setting"
+1509591869205	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps/setting"
+1509591869206	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps/setting"
+1509591869467	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps/new"
+1509591869473	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps/new"
+1509591876787	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591879031	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591884309	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591885544	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591886777	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591888009	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591893271	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1509591893384	Marionette	DEBUG	Received DOM event "beforeunload" for "http://mobile.umeng.com/apps/new"
+1509591893678	Marionette	DEBUG	Received DOM event "pagehide" for "http://mobile.umeng.com/apps/new"
+1509591893679	Marionette	DEBUG	Received DOM event "unload" for "http://mobile.umeng.com/apps/new"
+1509591893889	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mobile.umeng.com/apps"
+1509591893898	Marionette	DEBUG	Received DOM event "pageshow" for "http://mobile.umeng.com/apps"
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown

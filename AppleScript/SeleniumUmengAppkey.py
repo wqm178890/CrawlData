@@ -68,7 +68,7 @@ class SeleniumUmengAppkey(unittest.TestCase):
         # time.sleep(5.0)
 
        # self.driver.switch_to.frame(self.driver.find_element_by_tag_name("iframe"))
-        if self.is_element_present(By.XPATH, "/html/body/div[6]/div[3]/div/button[2]") == False:
+        if self.is_element_present(By.ID, "fm-login-submit") == True:
             dragger = self.driver.find_element_by_id("nc_1_n1z")
             action = ActionChains(self.driver)
             action.click_and_hold(dragger).move_to_element(dragger).perform(); #鼠标左键按下不放
@@ -96,12 +96,12 @@ class SeleniumUmengAppkey(unittest.TestCase):
                 #
                 # time.sleep(d[index]); #等待停顿时间
 
-                #action.release().perform(); #鼠标左键松开
+                #action.release().perform(); #鼠标左键松开	
                 action.reset_actions()
                 time.sleep(5.0)
                 driver.find_element_by_id("fm-login-submit").click()
         self.driver.switch_to.default_content()
-
+        time.sleep(5.0)
         if self.is_element_present(By.XPATH, "/html/body/div[6]/div[3]/div/button[2]") == True:
             print "check"
             driver.find_element_by_xpath("/html/body/div[6]/div[3]/div/button[2]").click()

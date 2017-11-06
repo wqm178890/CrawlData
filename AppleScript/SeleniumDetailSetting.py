@@ -260,32 +260,32 @@ class Test(unittest.TestCase):
         fo = open("%s/SettingAppInfo.txt" % cert_save_path, "w")
         fo.write("Success")
 
-    def test_setting_prince(self):
+    def setting_prince(self):
         driver = self.driver
         driver.get(self.url + "/pricing")
 
-
-        sleeptimes = 0
-        #帐号登录
-        while True:
-            try:
-                driver.switch_to.frame("aid-auth-widget-iFrame")
-                break
-            except:
-                sleeptimes += 1
-                if sleeptimes > 60:
-                    print "pageLoad Timeout"
-                    return
-                time.sleep(1.0)
-        driver.find_element_by_xpath("//*[@id='appleId']").clear()
-        driver.find_element_by_xpath("//*[@id='appleId']").send_keys(parser_xml.account)
-        driver.find_element_by_id("pwd").clear()
-        driver.find_element_by_id("pwd").send_keys(parser_xml.password)
-        time.sleep(1.0)
-        driver.find_element_by_id("sign-in").click()
-        driver.switch_to.default_content()
         #
-        time.sleep(5.0)
+        # sleeptimes = 0
+        # #帐号登录
+        # while True:
+        #     try:
+        #         driver.switch_to.frame("aid-auth-widget-iFrame")
+        #         break
+        #     except:
+        #         sleeptimes += 1
+        #         if sleeptimes > 60:
+        #             print "pageLoad Timeout"
+        #             return
+        #         time.sleep(1.0)
+        # driver.find_element_by_xpath("//*[@id='appleId']").clear()
+        # driver.find_element_by_xpath("//*[@id='appleId']").send_keys(parser_xml.account)
+        # driver.find_element_by_id("pwd").clear()
+        # driver.find_element_by_id("pwd").send_keys(parser_xml.password)
+        # time.sleep(1.0)
+        # driver.find_element_by_id("sign-in").click()
+        # driver.switch_to.default_content()
+        # #
+        # time.sleep(5.0)
 
 
         sleeptimes = 0

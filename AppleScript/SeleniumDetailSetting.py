@@ -132,7 +132,7 @@ class Test(unittest.TestCase):
         # driver.find_element_by_id("sign-in").click()
         # driver.switch_to.default_content()
         # #
-        # time.sleep(5.0)
+        time.sleep(5.0)
         
         sleeptimes = 0
         while self.is_element_present(By.XPATH, "(//input[@type='text'])[2]") == False:
@@ -141,15 +141,15 @@ class Test(unittest.TestCase):
                 print "pageLoad Timeout"
                 return
             time.sleep(1.0)
-        option_element = driver.find_element_by_xpath("id('appStorePageContent')/div[3]/div[1]/form/div[6]/div[2]/div/div[2]/div[1]/span/select")
-        options = Select(driver.find_element_by_xpath("id('appStorePageContent')/div[3]/div[1]/form/div[6]/div[2]/div/div[2]/div[1]/span/select")).options
+        option_element = driver.find_element_by_xpath("//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[2]/div[2]/span/span/select")
+        options = Select(driver.find_element_by_xpath("//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[2]/div[2]/span/span/select")).options
         select_text = ""
         for option in options:
-            if option.text.find(parser_xml.main_lang) > -1:
+            if option.text.find(parser_xml.main_category) > -1:
                 select_text = option.text
                 break
             print option.text
-        Select(driver.find_element_by_xpath("id('appStorePageContent')/div[3]/div[1]/form/div[6]/div[2]/div/div[2]/div[1]/span/select")).select_by_visible_text(select_text)
+        Select(driver.find_element_by_xpath("//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[2]/div[2]/span/span/select")).select_by_visible_text(select_text)
         for appinfo in parser_xml.app_names:
             #添加国家
             sleeptimes = 0
@@ -183,8 +183,10 @@ class Test(unittest.TestCase):
             time.sleep(10.0)
 
         #保存
-        if driver.find_element_by_css_selector("button").is_enabled(): 
-            driver.find_element_by_css_selector("button").click()
+        btn_element = driver.find_element_by_xpath("//*[@id='appStorePageInfoHeaderId']/div[2]/button")
+        if btn_element.is_enabled():
+           btn_element.click()
+
         time.sleep(2.0)
         sleeptimes = 0
         while driver.find_element_by_xpath("id('appStorePageInfoHeaderId')/div[2]/button/span[1]").is_displayed():
@@ -232,8 +234,10 @@ class Test(unittest.TestCase):
             time.sleep(2.0)
 
         #保存
-        if driver.find_element_by_css_selector("button").is_enabled():
-            driver.find_element_by_css_selector("button").click()
+        btn_element = driver.find_element_by_xpath("//*[@id='appStorePageInfoHeaderId']/div[2]/button")
+        #保存
+        if btn_element.is_enabled():
+           btn_element.click()
         time.sleep(2.0)
         sleeptimes = 0
         while driver.find_element_by_xpath("/html/body/div[1]/div[5]/div[5]/div/div[3]/div[1]/div[2]/div[2]/button[1]/span[1]").is_displayed():
@@ -256,21 +260,49 @@ class Test(unittest.TestCase):
         fo = open("%s/SettingAppInfo.txt" % cert_save_path, "w")
         fo.write("Success")
 
-    def setting_prince(self):
+    def test_setting_prince(self):
         driver = self.driver
         driver.get(self.url + "/pricing")
-        
+
+
         sleeptimes = 0
-        while self.is_element_present(By.XPATH, "//div[@id='main-ui-view']/div[4]/div/div[3]/div[2]/div/div[4]/div/div/table/tbody/tr[2]/td/div/div") is False:
+        #帐号登录
+        while True:
+            try:
+                driver.switch_to.frame("aid-auth-widget-iFrame")
+                break
+            except:
+                sleeptimes += 1
+                if sleeptimes > 60:
+                    print "pageLoad Timeout"
+                    return
+                time.sleep(1.0)
+        driver.find_element_by_xpath("//*[@id='appleId']").clear()
+        driver.find_element_by_xpath("//*[@id='appleId']").send_keys(parser_xml.account)
+        driver.find_element_by_id("pwd").clear()
+        driver.find_element_by_id("pwd").send_keys(parser_xml.password)
+        time.sleep(1.0)
+        driver.find_element_by_id("sign-in").click()
+        driver.switch_to.default_content()
+        #
+        time.sleep(5.0)
+
+
+        sleeptimes = 0
+        while self.is_element_present(By.XPATH, "//*[@id='main-ui-view']/div[4]/div/div[3]/div[2]/div[1]/div[4]/div/table/tbody/tr[2]/td[1]/div[1]/div[1]") is False:
             sleeptimes += 1
             if sleeptimes > 60:
                 print "pageLoad Timeout"
                 return
             time.sleep(1.0)
         driver.execute_script("$(\"div[class='popupmenuinner'] table tbody tr:eq(0) td\").click();")
+
+        time.sleep(2.0)
         #保存
-        if driver.find_element_by_css_selector("button").is_enabled():
-            driver.find_element_by_css_selector("button").click()
+        btn_element = driver.find_element_by_xpath("//*[@id='appVerionInfoHeaderId']/div[2]/button")
+        if btn_element.is_enabled():
+           btn_element.click()
+
         time.sleep(2.0)
         sleeptimes = 0
         while driver.find_element_by_xpath("id('appVerionInfoHeaderId')/div[2]/button/span[1]").is_displayed():
@@ -309,12 +341,12 @@ class Test(unittest.TestCase):
             time.sleep(1.0)
         
         #define 获取名字，邮箱
-        name_str = driver.find_element_by_xpath("//*[@id='session-nav-info']/div[2]").text
+        name_str = driver.find_element_by_xpath("//*[@id='itc-user-profile-controls-js']/div[1]/div[1]/div/h3").text
         family_name = name_str.split(" ")[1]
         name = name_str.split(" ")[0]
-        driver.find_element_by_xpath("id('session-nav-info')/div[1]").click()
+        driver.find_element_by_xpath("//*[@id='itc-user-profile-controls-js']/div[1]/div[2]").click()
         time.sleep(2.0)
-        email_address = driver.find_element_by_xpath("id('session-nav-multi')/ul[1]/li/div/div").text
+        email_address = driver.find_element_by_xpath("//*[@id='itc-user-profile-controls-js']/div[2]/header/div/div/p").text
         print 'family_name:', family_name
         print 'name:', name
         print 'email_address:', email_address
@@ -325,14 +357,16 @@ class Test(unittest.TestCase):
         # driver.find_element_by_xpath("(//input[@type='text'])[2]").send_keys(parser_xml.app_names[0]['name'])
 
         #类别
-        Select(driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div/form/div[6]/div[2]/div/div[2]/div[2]/span/span/select")).select_by_visible_text(parser_xml.main_category)
+        Select(driver.find_element_by_xpath("//*[@id='appStorePageContent']/div[3]/div[1]/form/div[7]/div[2]/div/div[2]/div[2]/span/span/select")).select_by_visible_text(parser_xml.main_category)
         #子类别
         #Select(driver.find_element_by_xpath("//div[@id='appStorePageContent']/div[3]/div/form/div[6]/div[2]/div/div[2]/div[2]/div[3]/span/span/select")).select_by_visible_text(parser_xml.minor_category)
-        
-        #保存
-        if driver.find_element_by_css_selector("button").is_enabled(): 
-            driver.find_element_by_css_selector("button").click()
+
         time.sleep(2.0)
+        btn_element = driver.find_element_by_xpath("//*[@id='appStorePageInfoHeaderId']/div[2]/button")
+        #保存
+        if btn_element.is_enabled():
+           btn_element.click()
+        time.sleep(4.0)
         sleeptimes = 0
         while driver.find_element_by_xpath("id('appStorePageInfoHeaderId')/div[2]/button/span[1]").is_displayed():
             time.sleep(1.0)
@@ -358,16 +392,17 @@ class Test(unittest.TestCase):
                 print "page loaded timeout"
                 return
         time.sleep(2.0)
-        
+
+        #切换到5.5英寸屏
+        driver.find_element_by_xpath("//*[@id='localizationSection']/div[2]/div[3]/div[1]/div[1]/div/div[1]/ul/li[2]/a").click()
         #上传前先清空原有的图片
         time.sleep(10.0)
-        if driver.find_element_by_link_text(u"iOS 屏幕快照属性").is_displayed() == False:
-            driver.find_element_by_link_text(u"全部删除").click()
-            driver.find_element_by_link_text(u"全部删除").click()
+        if driver.find_element_by_xpath("//*[@id='containerVersPg']/span/div[1]/p[4]/a[1]").is_displayed() == False:
+            driver.find_element_by_xpath("//*[@id='localizationSection']/div[2]/div[3]/div[1]/div[1]/div/div[6]/div[3]/div/a").click()
+            driver.find_element_by_xpath("//*[@id='localizationSection']/div[2]/div[3]/div[1]/div[1]/div/div[6]/div[3]/div/a").click()
             time.sleep(2.0)
-            driver.find_element_by_xpath("id('main-ui-view')/div[5]/div/div[3]/div[5]/div[1]/div/div/div/div/div[2]/div/button[2]").click()
+            driver.find_element_by_xpath("//*[@id='main-ui-view']/div[4]/div/div[3]/div[5]/div[1]/div/div/div/div/div[2]/div/button[2]").click()
             time.sleep(2.0)
-        
         
         #sub defind 图片上传
         for parent,dirnames,filenames in os.walk(parser_xml.screenshot_address):    #三个参数：分别返回1.父目录 2.所有文件夹名字（不含路径） 3.所有文件名字
